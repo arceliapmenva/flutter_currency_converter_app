@@ -5,18 +5,48 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const border =  OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 2.0,
+                      style: BorderStyle.solid,
+                    ),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(40),
+                    ),
+                  );
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
         backgroundColor: Colors.purple,
         centerTitle: true,
         title: const Text(
-          'huishiu',
+          'USD Converter',
           style: TextStyle(
+            color: Colors.grey,
             fontWeight: FontWeight.w900,
             fontStyle: FontStyle.italic,
             fontSize: 30,
           ),
+        ),
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.grey[500],
+        child: const Column(
+          children: [
+            DrawerHeader(
+              child: Icon(
+                Icons.abc,
+                color: Colors.black,
+                size: 50,
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.abc),
+              title: Text(
+                'HIois',
+              ),
+            )
+          ],
         ),
       ),
       backgroundColor: Colors.amber,
@@ -25,32 +55,58 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Hello World',
+              '\$',
               style: TextStyle(
                   color: Colors.black26,
-                  fontSize: 50,
-                  fontStyle: FontStyle.italic),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                  fontStyle: FontStyle.normal),
             ),
-            TextField(
-              style: TextStyle(
-                  //  fontWeight: FontWeight.w900
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.monetization_on_outlined,
+                    color: Colors.amber,
                   ),
-              decoration: InputDecoration(
-                hintText: 'Please Enter the Amount in USD',
-                hintStyle: TextStyle(
-                  color: Colors.blue,
+                  hintText: 'Please Enter the Amount',
+                  hintStyle: TextStyle(
+                    fontWeight: FontWeight.w900,
+                  ),
+                  filled: true,
+                  fillColor: Colors.purpleAccent,
+                  focusedBorder: border,
+                  enabledBorder: border,
                 ),
-                prefixIcon: Icon(
-                  Icons.monetization_on_outlined,
-                  color: Color.fromARGB(255, 36, 134, 73),
-                ),
-                filled: true,
-                fillColor: Colors.grey,
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.transparent)
-                )
               ),
             ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+                decoration: InputDecoration(
+                  suffixIcon: Icon(
+                    Icons.money_off_outlined,
+                    color: Colors.amber,
+                  ),
+                  hintText: 'Please Enter Your Name',
+                  hintStyle: TextStyle(
+                    fontStyle: FontStyle.italic,
+                  ),
+                  filled: true,
+                  fillColor: Color.fromRGBO(33, 150, 243, 1),
+                  focusedBorder: border,
+                  enabledBorder: border,
+                ),
+              ),
+            )
           ],
         ),
       ),
